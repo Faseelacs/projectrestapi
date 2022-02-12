@@ -1,0 +1,36 @@
+version: '2'
+services:
+    web:
+       build:
+       command: python manage.py runserver 0.0.0.0:8000
+       ports: 
+          ["8000:8000"]
+
+
+# version: '3'
+
+# services:
+#   api:
+#     build:
+#       context: .
+#       dockerfile: webapi/dockerfile
+#     ports:
+#        - 210
+#   web:
+#     build:
+#       context: .
+#       dockerfile: app/dockerfile
+#     ports:
+#       - 80
+#   lbapi:
+#     image: dockercloud/haproxy
+#     links:
+#        – api
+#     ports:
+#        – "8080:210"
+#   lbweb:
+#     image: dockercloud/haproxy
+#     links:
+#        – web
+#     ports:
+#        – "80:80"
